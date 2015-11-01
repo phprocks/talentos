@@ -3,16 +3,20 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'Talentos',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    //'defaultRoute' => 'solicitation/create',
+    'defaultRoute' => 'site/index',
     'language' => 'pt-BR',
     'sourceLanguage' => 'en-US',    
     'components' => [
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        // ],    
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'pu2pprm7644lgMvtpYHAgz6bZKEurjjA',
+            'cookieValidationKey' => 'talento',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
