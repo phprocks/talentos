@@ -8,12 +8,23 @@ use app\models\VagasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 class VagasController extends Controller
 {
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::classname(),
+                'only'  => ['index','create','update','delete','view'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@']
+                    ],
+                ]
+            ],        
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

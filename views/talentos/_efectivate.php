@@ -12,6 +12,16 @@ use yii\widgets\MaskedInput;
 
     <?php $form = ActiveForm::begin(); ?>
 
+
+    <div class="row">
+        <div class="col-md-6">
+      <?= $form->field($model, 'flag_efetivado')->radioList([
+        '1' => 'Sim', 
+        '0' => 'Não',
+        ], ['itemOptions' => ['class' =>'radio-inline','labelOptions'=>array('style'=>'padding:5px;')]])->label('Marcar como contratado?') ?>
+    </div>
+    </div>
+    <hr/>
     <div class="row">
 
       <div class="col-md-6">

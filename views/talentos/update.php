@@ -12,7 +12,7 @@ $this->title = "Alterar indicação " . $model->id;
     <h2><?= Html::encode($this->title) ?></h2>
     <hr/>
 
-    <?= $this->render('_form', [
+    <?= $this->render('_efectivate', [
         'model' => $model,
     ]) ?>
 
