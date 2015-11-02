@@ -17,6 +17,7 @@ class Talentos extends \yii\db\ActiveRecord
             [['pa_id', 'indicado_por', 'nome_talento', 'cel_talento', 'tel_talento', 'email_talento', 'empresa_talento'], 'required','message' => 'Campo Obrigatório'],
             [['pa_id', 'flag_efetivado'], 'integer'],
             [['observacao'], 'string'],
+            [['email_talento'], 'email'],                            
             [['created'], 'safe'],
             [['indicado_por', 'nome_talento', 'empresa_talento'], 'string', 'max' => 100],
             [['cel_talento', 'tel_talento', 'email_talento', 'salario_talento'], 'string', 'max' => 45]

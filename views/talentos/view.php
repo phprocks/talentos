@@ -6,20 +6,19 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Talentos */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Talentos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = "Detalhes da indicação " . $model->id;
 ?>
 <div class="talentos-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
+    <hr/>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Alterar', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Excluir', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Tem certeza que deseja excluir est item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,8 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            [
+             'attribute' => 'flag_efetivado',
+             'label' => 'Contratado?',
+             'format' => 'raw',
+             'value' => $model->flag_efetivado == 1 ? '<span style="color:green" class="glyphicon glyphicon-ok" aria-hidden="true"></span> Sim' : '<span style="color:red" class="glyphicon glyphicon-remove" aria-hidden="true"></span> Não',
+             ],           
             'id',
-            'pa_id',
+            'pa.sigla_pa',
             'indicado_por',
             'nome_talento',
             'cel_talento',
@@ -38,8 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'empresa_talento',
             'salario_talento',
             'observacao:ntext',
-            'created',
-            'flag_efetivado',
+            [
+                'attribute' => 'created',
+                'format' => 'html',
+                'value' => date("d/m/Y",  strtotime($model->created)),
+            ],                         
         ],
     ]) ?>
 

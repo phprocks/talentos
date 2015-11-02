@@ -48,7 +48,7 @@ class TalentosSearch extends Talentos
             'sort' => [
             // Set the default sort by name ASC and created_at DESC.
             'defaultOrder' => [
-                'created' => SORT_DESC, 
+                'id' => SORT_DESC, 
                 //'created_at' => SORT_DESC
                 ]
             ],

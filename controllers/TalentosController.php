@@ -46,7 +46,8 @@ class TalentosController extends Controller
         $model = new Talentos();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash("talento-success", '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Indicação realizada com sucesso!');
+            return $this->redirect(['vagas/presentation', 'id' => 1]);
         } else {
             return $this->render('create', [
                 'model' => $model,

@@ -23,6 +23,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
+            'returnUrl' => array('/talentos/index'),
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [

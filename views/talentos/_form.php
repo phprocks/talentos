@@ -12,7 +12,18 @@ use yii\widgets\MaskedInput;
 
     <?php $form = ActiveForm::begin(); ?>
 
+
     <div class="row">
+        <div class="col-md-6">
+      <?= $form->field($model, 'flag_efetivado')->radioList([
+        '1' => 'Sim', 
+        '0' => 'Não',
+        ], ['itemOptions' => ['class' =>'radio-inline','labelOptions'=>array('style'=>'padding:5px;')]])->label('Marcar como contratado?') ?>
+    </div>
+    </div>
+    <hr/>
+    <div class="row">
+
       <div class="col-md-6">
       <!-- Left col -->
 
@@ -43,6 +54,8 @@ use yii\widgets\MaskedInput;
         <?= $form->field($model, 'salario_talento')->textInput(['maxlength' => true,'style'=>'width:100px']) ?>
 
         <?= $form->field($model, 'observacao')->textarea(['rows' => 6]) ?>
+
+        <?= Html::activeHiddenInput($model, 'created', ['value' => date("Y-m-d H:i:s")]) ?>
       </div>
     </div>
 

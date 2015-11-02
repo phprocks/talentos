@@ -23,6 +23,8 @@ use yii\widgets\ActiveForm;
         ]
     ])?>
 
+    <?= Html::activeHiddenInput($model, 'data', ['value' => date("Y-m-d H:i:s")]) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Gravar' : 'Gravar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-success']) ?>
     </div>
