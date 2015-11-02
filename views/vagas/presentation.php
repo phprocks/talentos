@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+/* @var $this yii\web\View */
+/* @var $model app\models\Vagas */
+
 $this->title = 'Texto de Apresentação e Vagas disponíveis';
 ?>
 <div class="vagas-view">

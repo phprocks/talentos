@@ -13,58 +13,38 @@ use yii\widgets\MaskedInput;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <div class="col-sm-3">
-        <?= $form->field($model, 'pa_id')->dropDownList(ArrayHelper::map(Pa::find()->orderBy("sigla_pa ASC")->all(), 'id', 'sigla_pa'),['prompt'=>'-- Selecione --'])  ?>
-        </div>
-    </div>
+      <div class="col-md-6">
+      <!-- Left col -->
 
-    <div class="row">
-        <div class="col-sm-3">
-        <?= $form->field($model, 'indicado_por')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
+        <?= $form->field($model, 'pa_id')->dropDownList(ArrayHelper::map(Pa::find()->orderBy("sigla_pa ASC")->all(), 'id', 'sigla_pa'),['prompt'=>'-- PA --','style'=>'width:100px'])  ?>
 
-    <div class="row">
-        <div class="col-sm-3">    
-        <?= $form->field($model, 'nome_talento')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
+        <?= $form->field($model, 'indicado_por')->textInput(['maxlength' => true,'style'=>'width:300px']) ?>
 
-    <div class="row">
-        <div class="col-sm-3">      
+        <?= $form->field($model, 'nome_talento')->textInput(['maxlength' => true,'style'=>'width:300px']) ?>
+
         <?= $form->field($model, 'cel_talento')->widget(\yii\widgets\MaskedInput::classname(), [
             'mask' => ['(99)9999-9999'],
+            'options' => ['class'=>'form-control','style'=>'width:130px'],
         ]) ?>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-3">
         <?= $form->field($model, 'tel_talento')->widget(\yii\widgets\MaskedInput::classname(), [
             'mask' => ['(99)9999-9999'],
+            'options' => ['class'=>'form-control','style'=>'width:130px'],
         ]) ?>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-3">
-        <?= $form->field($model, 'email_talento')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
+        <?= $form->field($model, 'email_talento')->textInput(['maxlength' => true,'style'=>'width:300px']) ?>
 
-    <div class="row">
-        <div class="col-sm-3">    
-        <?= $form->field($model, 'empresa_talento')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
+      </div>
+      <div class="col-md-6">
+      <!-- Right col -->
+   
+        <?= $form->field($model, 'empresa_talento')->textInput(['maxlength' => true,'style'=>'width:300px']) ?>
+   
+        <?= $form->field($model, 'salario_talento')->textInput(['maxlength' => true,'style'=>'width:100px']) ?>
 
-    <div class="row">
-        <div class="col-sm-3">    
-        <?= $form->field($model, 'salario_talento')->textInput(['maxlength' => true]) ?>
-        </div>
+        <?= $form->field($model, 'observacao')->textarea(['rows' => 6]) ?>
+      </div>
     </div>
-
-    <?= $form->field($model, 'observacao')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Gravar' : 'Gravar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-success']) ?>

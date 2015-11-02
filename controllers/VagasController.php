@@ -9,9 +9,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-/**
- * VagasController implements the CRUD actions for Vagas model.
- */
 class VagasController extends Controller
 {
     public function behaviors()
@@ -26,10 +23,6 @@ class VagasController extends Controller
         ];
     }
 
-    /**
-     * Lists all Vagas models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new VagasSearch();
@@ -41,11 +34,6 @@ class VagasController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Vagas model.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -53,11 +41,6 @@ class VagasController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Vagas model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     // public function actionCreate()
     // {
     //     $model = new Vagas();
@@ -71,12 +54,6 @@ class VagasController extends Controller
     //     }
     // }
 
-    /**
-     * Updates an existing Vagas model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -90,12 +67,6 @@ class VagasController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing Vagas model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -103,13 +74,6 @@ class VagasController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Vagas model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Vagas the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Vagas::findOne($id)) !== null) {
