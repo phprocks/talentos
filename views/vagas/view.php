@@ -16,8 +16,16 @@ $this->title = 'Texto de Apresentação e Vagas disponíveis';
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'texto_completo:ntext',
-            'data',
+            //'texto_completo:ntext',
+            [
+                'attribute' => 'texto_completo',
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'data',
+                'format' => 'html',
+                'value' => "<p class=\"text-muted\"> Atualizado em " . date("d/m/Y",  strtotime($model->data)) . "</p>",
+            ],   
         ],
     ]) ?>
 

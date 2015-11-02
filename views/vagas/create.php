@@ -7,12 +7,11 @@ use yii\helpers\Html;
 /* @var $model app\models\Vagas */
 
 $this->title = 'Create Vagas';
-$this->params['breadcrumbs'][] = ['label' => 'Vagas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="vagas-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
 
     <?= $this->render('_form', [
         'model' => $model,
