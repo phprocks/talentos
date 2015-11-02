@@ -37,14 +37,14 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
         'items' => [
-            ['label' => '<i class="fa fa-star"></i> Indicar um Talento', 'url' => ['talentos/create'], 'visible'=> Yii::$app->user->isGuest,],
-            ['label' => '<i class="fa fa-star"></i> Listar Indicações', 'url' => ['talentos/index'], 'visible'=> !Yii::$app->user->isGuest,],
-            ['label' => '<i class="fa fa-star"></i> Vagas', 'url' => ['vagas/view', 'id' => 1], 'visible'=> !Yii::$app->user->isGuest,],
-            ['label' => '<i class="fa fa-star"></i> Estatísticas', 'url' => ['talentos/index'], 'visible'=> !Yii::$app->user->isGuest,],
+            ['label' => '<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Indicar um Talento', 'url' => ['talentos/create'], 'visible'=> Yii::$app->user->isGuest,],
+            ['label' => '<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Listar Indicações', 'url' => ['talentos/index'], 'visible'=> !Yii::$app->user->isGuest,],
+            ['label' => '<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Vagas', 'url' => ['vagas/view', 'id' => 1], 'visible'=> !Yii::$app->user->isGuest,],
+            //['label' => '<i class="fa fa-star"></i> Estatísticas', 'url' => ['talentos/index'], 'visible'=> !Yii::$app->user->isGuest,],
             Yii::$app->user->isGuest ?
-                ['label' => '<i class="fa fa-lock"></i>  Gestão de Pessoas', 'url' => ['/site/login']] :
+                ['label' => '<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>  Gestão de Pessoas', 'url' => ['/site/login']] :
                 [
-                    'label' => 'Sair (' . Yii::$app->user->identity->username . ')',
+                    'label' => '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sair (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ],

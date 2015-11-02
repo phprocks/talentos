@@ -2,17 +2,16 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\Pa;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Talentos */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="talentos-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'pa_id')->textInput() ?>
+    <?= $form->field($model, 'pa_id')->dropDownList(ArrayHelper::map(Pa::find()->orderBy("sigla_pa ASC")->all(), 'id', 'sigla_pa'),['prompt'=>'-- Selecione --'])  ?>
 
     <?= $form->field($model, 'indicado_por')->textInput(['maxlength' => true]) ?>
 
@@ -30,12 +29,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'observacao')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'created')->textInput() ?>
-
-    <?= $form->field($model, 'flag_efetivado')->textInput() ?>
-
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Gravar' : 'Gravar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

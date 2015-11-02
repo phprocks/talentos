@@ -5,30 +5,33 @@ use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use app\models\Pa;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\TalentosSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Lista de Indicações';
 ?>
 <div class="talentos-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <h2><?= Html::encode($this->title) ?></h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+      </div>
+    </div>
+    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions' => function($model){
+            if($model->flag_efetivado === 1)
+                {
+                    return ['class' => 'warning'];
+                }
+        },        
         'columns' => [
             [
              'attribute' => 'created',
              'enableSorting' => true,
              'contentOptions'=>['style'=>'width: 7%;text-align:center'],
              'format' => ['date', 'php:d/m/Y'],
-             //'filter' => DatePicker::widget(['language' => 'pt', 'dateFormat' => 'yyyy-MM-dd']),
-             //'format' => 'html',
             ],            
-            //'pa.sigla_pa',
             [
              'attribute' => 'pa_id',
              'format' => 'raw',
@@ -51,9 +54,18 @@ $this->title = 'Lista de Indicações';
             // 'flag_efetivado',
 
             ['class' => 'yii\grid\ActionColumn',
-            'contentOptions'=>['style'=>'width: 5%;text-align:center'],
-            'template' => '{view} {delete}',
-                            'buttons' => [
+            'contentOptions'=>['style'=>'width: 8%;text-align:center'],
+            'template' => '{star} {view} {delete}',
+            'buttons' => [              
+                    'star' => function ($url, $model) {
+                            return $model->flag_efetivado === 0 ?  Html::a('<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>', $url, [
+                                        'title' => 'Não Contratado',
+                                        //'class'=>'btn btn-primary btn-xs',                                
+                        ]) : Html::a('<span class="glyphicon glyphicon-star fa-spin" style="color:gold" aria-hidden="true"></span>', $url, [
+                                        'title' => 'Contratado!',
+                                        //'class'=>'btn btn-primary btn-xs',                                
+                        ]);
+                    },
                     'view' => function ($url, $model) {
                         return Html::a('<span class="glyphicon glyphicon-eye-open" ></span>', $url, [
                                     'title' => 'Visualizar',

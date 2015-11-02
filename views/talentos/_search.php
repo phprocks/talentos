@@ -15,34 +15,18 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="row">
+        <div class="col-sm-3">
+            <?= $form->field($model, 'flag_efetivado')->radioList([
+        '1' => 'Sim', 
+        '0' => 'Não',
+        ], ['itemOptions' => ['class' =>'radio-inline','labelOptions'=>array('onchange'=>'this.form.submit()','style'=>'padding:5px;')]])->label('Exibir Indicações Contratadas') ?>
+        </div>
+    </div>    
 
-    <?= $form->field($model, 'pa_id') ?>
-
-    <?= $form->field($model, 'indicado_por') ?>
-
-    <?= $form->field($model, 'nome_talento') ?>
-
-    <?= $form->field($model, 'cel_talento') ?>
-
-    <?php // echo $form->field($model, 'tel_talento') ?>
-
-    <?php // echo $form->field($model, 'email_talento') ?>
-
-    <?php // echo $form->field($model, 'empresa_talento') ?>
-
-    <?php // echo $form->field($model, 'salario_talento') ?>
-
-    <?php // echo $form->field($model, 'observacao') ?>
-
-    <?php // echo $form->field($model, 'created') ?>
-
-    <?php // echo $form->field($model, 'flag_efetivado') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-    </div>
+<!--     <div class="form-group">
+        <?= Html::submitButton('Filtrar', ['class' => 'btn btn-success']) ?>
+    </div> -->
 
     <?php ActiveForm::end(); ?>
 

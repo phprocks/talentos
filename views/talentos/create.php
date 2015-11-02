@@ -2,13 +2,7 @@
 
 use yii\helpers\Html;
 
-
-/* @var $this yii\web\View */
-/* @var $model app\models\Talentos */
-
-$this->title = 'Create Talentos';
-$this->params['breadcrumbs'][] = ['label' => 'Talentos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Indique um Talento';
 ?>
 <div class="talentos-create">
 
