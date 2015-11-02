@@ -40,10 +40,11 @@ class VagasController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-    public function actionPresentation($id)
+    public function actionPresentation()
     {
+        $id =1;
         return $this->render('presentation', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel(1),
         ]);
     }    
 

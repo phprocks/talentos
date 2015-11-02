@@ -11,6 +11,14 @@ $this->title = 'Bem-vindo ao Ação Indique um Talento';
     <h2>Bem-vindo ao Ação Indique um Talento</h2>
     <hr/>
 
+    <?php if ($flash = Yii::$app->session->getFlash("talento-success")): ?>
+
+        <div class="alert alert-success">
+            <p class="text-center"><?= $flash ?></p>
+        </div>
+
+    <?php endif; ?>
+    
     <?= DetailView::widget([
         'model' => $model,
         'template' => '{value}</p>',
@@ -18,7 +26,7 @@ $this->title = 'Bem-vindo ao Ação Indique um Talento';
             //'texto_completo:ntext',
             [
                 'attribute' => 'texto_completo',
-                'format' => 'ntext',
+                'format' => 'html',
             ],
             [
                 'attribute' => 'data',
@@ -29,7 +37,7 @@ $this->title = 'Bem-vindo ao Ação Indique um Talento';
     ]) ?>
     <div class="row">
       <div class="col-md-5 col-md-offset-3">
-      <?= Html::a('<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Indicar um Talento', ['create'], ['class' => 'btn btn-success btn-lg btn-block']) ?>
+      <?= Html::a('<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Indicar um Talento', ['talentos/create'], ['class' => 'btn btn-success btn-lg btn-block']) ?>
       </div>
     </div>
 </div>
