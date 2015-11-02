@@ -37,7 +37,10 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
         'items' => [
-            ['label' => '<i class="fa fa-star"></i> Indicar um Talento', 'url' => ['/site/index']],
+            ['label' => '<i class="fa fa-star"></i> Indicar um Talento', 'url' => ['talentos/create'], 'visible'=> Yii::$app->user->isGuest,],
+            ['label' => '<i class="fa fa-star"></i> Listar Indicações', 'url' => ['talentos/index'], 'visible'=> !Yii::$app->user->isGuest,],
+            ['label' => '<i class="fa fa-star"></i> Vagas', 'url' => ['vagas/view', 'id' => 1], 'visible'=> !Yii::$app->user->isGuest,],
+            ['label' => '<i class="fa fa-star"></i> Estatísticas', 'url' => ['talentos/index'], 'visible'=> !Yii::$app->user->isGuest,],
             Yii::$app->user->isGuest ?
                 ['label' => '<i class="fa fa-lock"></i>  Gestão de Pessoas', 'url' => ['/site/login']] :
                 [

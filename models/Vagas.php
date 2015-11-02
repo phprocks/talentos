@@ -40,7 +40,7 @@ class Vagas extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'texto_completo' => 'Texto Completo',
+            'texto_completo' => 'Texto',
             'data' => 'Data',
         ];
     }

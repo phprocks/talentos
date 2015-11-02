@@ -45,6 +45,16 @@ class TalentosSearch extends Talentos
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+            // Set the default sort by name ASC and created_at DESC.
+            'defaultOrder' => [
+                'created' => SORT_DESC, 
+                //'created_at' => SORT_DESC
+                ]
+            ],
+            'pagination' => [
+                'pageSize' => 100,
+                ],
         ]);
 
         $this->load($params);

@@ -40,15 +40,15 @@ class Pa extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'sigla_pa' => 'Sigla Pa',
+            'sigla_pa' => 'PA',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTbTalentos()
+    public function getTalentos()
     {
-        return $this->hasMany(TbTalentos::className(), ['pa_id' => 'id']);
+        return $this->hasMany(Talentos::className(), ['pa_id' => 'id']);
     }
 }

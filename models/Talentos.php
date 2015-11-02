@@ -54,17 +54,17 @@ class Talentos extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'pa_id' => 'Pa ID',
+            'pa_id' => 'PA',
             'indicado_por' => 'Indicado Por',
-            'nome_talento' => 'Nome Talento',
+            'nome_talento' => 'Nome do Talento',
             'cel_talento' => 'Cel Talento',
             'tel_talento' => 'Tel Talento',
-            'email_talento' => 'Email Talento',
+            'email_talento' => 'Email',
             'empresa_talento' => 'Empresa Talento',
             'salario_talento' => 'Salario Talento',
             'observacao' => 'Observacao',
-            'created' => 'Created',
-            'flag_efetivado' => 'Flag Efetivado',
+            'created' => 'Data',
+            'flag_efetivado' => 'Efetivado',
         ];
     }
 
@@ -73,6 +73,6 @@ class Talentos extends \yii\db\ActiveRecord
      */
     public function getPa()
     {
-        return $this->hasOne(TbPa::className(), ['id' => 'pa_id']);
+        return $this->hasOne(Pa::className(), ['id' => 'pa_id']);
     }
 }
