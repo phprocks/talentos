@@ -40,6 +40,12 @@ class VagasController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+    public function actionPresentation($id)
+    {
+        return $this->render('presentation', [
+            'model' => $this->findModel($id),
+        ]);
+    }    
 
     // public function actionCreate()
     // {

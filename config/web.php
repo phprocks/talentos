@@ -6,7 +6,7 @@ $config = [
     'id' => 'Talentos',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'site/index',
+    'defaultRoute' => 'vagas/presentation',
     'language' => 'pt-BR',
     'sourceLanguage' => 'en-US',    
     'components' => [
@@ -46,6 +46,9 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],
+        'modules' => [
+            'redactor' => 'yii\redactor\RedactorModule',
+        ],    
     'params' => $params,
 ];
 

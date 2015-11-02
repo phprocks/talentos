@@ -3,25 +3,33 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Vagas */
 
-$this->title = 'Texto de Apresentação e Vagas disponíveis';
+$this->title = 'Bem-vindo ao Ação Indique um Talento';
 ?>
 <div class="vagas-view">
 
-    <h2><?= Html::encode($this->title) ?></h2>
-
-    <p>
-        <?= Html::a('<i class="fa fa-edit"></i>Alterar', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-    </p>
+    <h2>Bem-vindo ao Ação Indique um Talento</h2>
+    <hr/>
 
     <?= DetailView::widget([
         'model' => $model,
+        'template' => '{value}</p>',
         'attributes' => [
-            'texto_completo:ntext',
-            'data',
+            //'texto_completo:ntext',
+            [
+                'attribute' => 'texto_completo',
+                'format' => 'ntext',
+            ],
+            [
+                'attribute' => 'data',
+                'format' => 'html',
+                'value' => "<p class=\"text-muted\"> Atualizado em " . date("d/m/Y",  strtotime($model->data)) . "</p>",
+            ],            
         ],
     ]) ?>
-
+    <div class="row">
+      <div class="col-md-5 col-md-offset-3">
+      <?= Html::a('<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Indicar um Talento', ['create'], ['class' => 'btn btn-success btn-lg btn-block']) ?>
+      </div>
+    </div>
 </div>
